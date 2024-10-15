@@ -8,6 +8,7 @@ Created on Sat Oct  5 2024
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+from scipy.stats import spearmanr
 
 ##################################################################################################
 ####################################### DATA INPUT ###############################################
@@ -42,10 +43,20 @@ HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'] = np.log2(HepG2_SUD1_minP_mRNADNA_Rep2['m
 ##################################################################################################
 plt.rcParams['font.size'] = '40'
 plt.rcParams.update({'font.family':'Helvetica'})
-plt.figure(figsize=(15, 15))
+plt.figure(figsize=(18, 15))
 
-plt.scatter(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'], marker='H', s=600, alpha=0.1)
+
+# Create a hexagonal bin plot
+plt.hexbin(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
+# Add a color bar
+plt.colorbar(label='Counts in bin')
 plt.xlabel('Log2 Fold Change, HepG2 minP Replicate 1')
 plt.ylabel('Log2 Fold Change, HepG2 minP Replicate 2')
 plt.xlim(-10.5, 10.5)
 plt.ylim(-10.5, 10.5)
+
+# Calculate Spearman correlation coefficient
+coef, p_value = spearmanr(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'])
+
+print(f"Spearman correlation coefficient: {coef}")
+print(f"P-value: {p_value}")
