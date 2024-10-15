@@ -56,7 +56,11 @@ plt.xlim(-10.5, 10.5)
 plt.ylim(-10.5, 10.5)
 
 # Calculate Spearman correlation coefficient
-coef, p_value = spearmanr(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'])
+coef_HepG2_SUD1_minP, p_value_HepG2_SUD1_minP = spearmanr(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'])
 
-print(f"Spearman correlation coefficient: {coef}")
-print(f"P-value: {p_value}")
+# Annotate the plot with the Spearman coefficient
+plt.annotate(f'Spearman coefficient: {coef_HepG2_SUD1_minP:.3f}\nP-value: {p_value_HepG2_SUD1_minP:.1f}', 
+             xy=(0.05, 0.95), xycoords='axes fraction', ha='left', va='top', 
+             bbox=dict(boxstyle='round', facecolor='white', alpha=0))
+# print(f"Spearman correlation coefficient: {coef}")
+# print(f"P-value: {p_value}")
