@@ -35,7 +35,7 @@ HepG2_SUD1_minP_mRNA_Rep2.rename(columns={'Counts': 'mRNACounts'}, inplace = Tru
 HepG2_SUD1_minP_mRNADNA_Rep1 = HepG2_SUD1_minP_mRNA_Rep1.merge(SUD1_minP_DNA_short, how='left', on=['Tags'])
 HepG2_SUD1_minP_mRNADNA_Rep2 = HepG2_SUD1_minP_mRNA_Rep2.merge(SUD1_minP_DNA_short, how='left', on=['Tags'])
 
-###################### Read in HepG2 SUD1 SV40P data ###########################
+###################### Read in HepG2 SUD1 SV40P data ##########################
 HepG2_SUD1_SV40P_mRNA_Rep1 = pd.read_csv('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA_dataset/GSE71279_RAW/GSM1831759_HepG2_ScaleUpDesign1_SV40P_mRNA_Rep1.counts.txt', sep='\t')
 HepG2_SUD1_SV40P_mRNA_Rep2 = pd.read_csv('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA_dataset/GSE71279_RAW/GSM1831760_HepG2_ScaleUpDesign1_SV40P_mRNA_Rep2.counts.txt', sep='\t')
 
@@ -72,7 +72,7 @@ K562_SUD1_minP_mRNADNA_Rep1 = K562_SUD1_minP_mRNA_Rep1.merge(SUD1_minP_DNA_short
 K562_SUD1_minP_mRNADNA_Rep2 = K562_SUD1_minP_mRNA_Rep2.merge(SUD1_minP_DNA_short, how='left', on=['Tags'])
 
 ############################## Scaled Up Design 2 #############################
-############################### Read in DNA data #############################
+############################### Read in DNA data ##############################
 SUD2_minP_DNA = pd.read_csv('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA_dataset/GSE71279_RAW/GSM1831775_ScaleUpDesign2_minP_Plasmid.counts.txt', sep='\t')
 SUD2_SV40P_DNA = pd.read_csv('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA_dataset/GSE71279_RAW/GSM1831776_ScaleUpDesign2_SV40P_Plasmid.counts.txt', sep='\t')
 SUD2_minP_DNA.rename(columns={'Counts': 'DNACounts'}, inplace = True)
@@ -174,7 +174,7 @@ plt.rcParams.update({'font.family':'Helvetica'}) # Set default font
 plt.rcParams['figure.figsize'] = (18, 15) # Set default figure size
 
 ############################## Scaled Up Design 1 #############################
-########################## Fig1 HepG2 SUD1 minP HexBin #######################
+########################## Fig1 HepG2 SUD1 minP HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(1)
 plt.hexbin(HepG2_SUD1_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD1_minP_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
@@ -195,7 +195,7 @@ plt.annotate(f'Spearman coefficient: {coef_HepG2_SUD1_minP:.3f}\nP-value: {p_val
 # Save the plot
 plt.savefig('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA/MPRA_plots/HepG2_SUD1_minP_HexBin.pdf', format='pdf', bbox_inches='tight', transparent=True)
 
-######################### Fig2 HepG2 SUD1 SV40P HexBin #######################
+######################### Fig2 HepG2 SUD1 SV40P HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(2)
 plt.hexbin(HepG2_SUD1_SV40P_mRNADNA_Rep1['log2FC'], HepG2_SUD1_SV40P_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
@@ -237,7 +237,7 @@ plt.annotate(f'Spearman coefficient: {coef_K562_SUD1_SV40P:.3f}\nP-value: {p_val
 # Save the plot
 plt.savefig('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA/MPRA_plots/K562_SUD1_SV40P_HexBin.pdf', format='pdf', bbox_inches='tight', transparent=True)
 
-########################### Fig4 K562 SUD1 minP HexBin #######################
+########################### Fig4 K562 SUD1 minP HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(4)
 plt.hexbin(K562_SUD1_minP_mRNADNA_Rep1['log2FC'], K562_SUD1_minP_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
@@ -259,7 +259,7 @@ plt.annotate(f'Spearman coefficient: {coef_K562_SUD1_minP:.3f}\nP-value: {p_valu
 plt.savefig('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA/MPRA_plots/K562_SUD1_minP_HexBin.pdf', format='pdf', bbox_inches='tight', transparent=True)
 
 ############################## Scaled Up Design 2 #############################
-########################## Fig5 HepG2 SUD1 minP HexBin #######################
+########################## Fig5 HepG2 SUD1 minP HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(5)
 plt.hexbin(HepG2_SUD2_minP_mRNADNA_Rep1['log2FC'], HepG2_SUD2_minP_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
@@ -280,7 +280,7 @@ plt.annotate(f'Spearman coefficient: {coef_HepG2_SUD2_minP:.3f}\nP-value: {p_val
 # Save the plot
 plt.savefig('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA/MPRA_plots/HepG2_SUD2_minP_HexBin.pdf', format='pdf', bbox_inches='tight', transparent=True)
 
-######################### Fig6 HepG2 SUD2 SV40P HexBin #######################
+######################### Fig6 HepG2 SUD2 SV40P HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(6)
 plt.hexbin(HepG2_SUD2_SV40P_mRNADNA_Rep1['log2FC'], HepG2_SUD2_SV40P_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
@@ -322,7 +322,7 @@ plt.annotate(f'Spearman coefficient: {coef_K562_SUD2_SV40P:.3f}\nP-value: {p_val
 # Save the plot
 plt.savefig('/Users/angela_gao/Dropbox/Angela Gao - UCSF Tetrad/Calderon Lab Rotation/MPRA_Project/MPRA/MPRA_plots/K562_SUD2_SV40P_HexBin.pdf', format='pdf', bbox_inches='tight', transparent=True)
 
-########################### Fig8 K562 SUD2 minP HexBin #######################
+########################### Fig8 K562 SUD2 minP HexBin ########################
 # Create a hexagonal bin plot
 plt.figure(8)
 plt.hexbin(K562_SUD2_minP_mRNADNA_Rep1['log2FC'], K562_SUD2_minP_mRNADNA_Rep2['log2FC'], gridsize=30, cmap='Blues', mincnt=1, bins='log')
